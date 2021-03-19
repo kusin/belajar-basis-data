@@ -1,13 +1,16 @@
 ----------------------------------------------------------------------------------------------------
 -- # DATA PEGAWAI # ================================================================================
 ----------------------------------------------------------------------------------------------------
-select * from tb_pegawai;
+-- Menambah data
 insert into
 	tb_pegawai (id_pegawai, nama_pegawai, jns_kelamin, tempat_lahir, tanggal_lahir, pendidikan_terakhir, tanggal_mulai_kerja)
 values
 	('IDP-0001','Imam Marzuki Shofi','Laki-Laki','Semarang','1972-08-17','Sarjana','2015-01-01'),
 	('IDP-0002','Fenti Eka MUzayana','Perempuan','Jakarta','1972-08-17','SMA','2015-01-01'),
 	('IDP-0003','Nurhayati Buslim','Perempuan','Jakarta','1972-08-17','SMA','2015-01-01');
+
+-- Melihat data
+select * from tb_pegawai;
 
 select * from tb_cso;
 insert into tb_cso (id_cso, id_pegawai, kemampuan_berbahasa)
