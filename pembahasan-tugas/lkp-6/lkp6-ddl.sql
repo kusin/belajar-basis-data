@@ -36,9 +36,9 @@ create table tb_dept_location(
 -- drop table tb_project;
 create table tb_project(
 	PNumber varchar(50),
-	DNumber varchar(50),
 	PName varchar(50),
-	PLocation varchar(50)
+	PLocation varchar(50),
+	DNumber varchar(50)
 );
 
 -- membuat tb_work_on;
@@ -58,15 +58,6 @@ create table tb_dependent(
 	BDate date,
 	Relationship varchar(50)
 );
-
-
-
-
-
-
-
-
-
 
 
 
