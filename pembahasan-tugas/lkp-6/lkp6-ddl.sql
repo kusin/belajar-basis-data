@@ -46,7 +46,7 @@ create table tb_project(
 create table tb_work_on(
 	SSN varchar(50),
 	PNumber varchar(50),
-	Hours varchar(50)
+	Hours bigint
 );
 
 -- membuat tb_dependent;

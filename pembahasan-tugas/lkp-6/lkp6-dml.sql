@@ -1,16 +1,9 @@
--- crud tb_employee
-select * from tb_employee;
-select * from tb_departement;
-select * from tb_dept_location;
-select * from tb_project;
-select * from tb_work_on;
-select * from tb_dependent;
-
-
-
 ----------------------------------------------------------------------------------------------------
 -- # tb_employee  # ================================================================================
 ----------------------------------------------------------------------------------------------------
+-- melihat data
+select * from tb_employee;
+
 -- menambah data
 insert into
 	tb_employee (SSN, FName, MName, LName, BDate, Address, Sex, Salary, SuperSSN, DNumber)
@@ -31,13 +24,13 @@ values
 	('E014', 'Benedika', 'F', 'Hutabarat', '21-Jun-1987', 'BADONENG', 'M', 3250000, 'E003', 3),
 	('E015', 'Herbet', null, 'Sianipar', '16-Jul-1987', 'BARA', 'M', 3750000, 'E003', 3);
 
--- melihat data
-select * from tb_employee;
-
 
 ----------------------------------------------------------------------------------------------------
 -- # tb_departement # ==============================================================================
 ----------------------------------------------------------------------------------------------------
+-- melihat data
+select * from tb_departement;
+
 -- menambah data
 insert into
 	tb_departement (DNumber, DName, Mgr_SSN, Mgr_StartDate)
@@ -47,33 +40,34 @@ values
 	(3,'HUMAS','E003','30-May-2006'),
 	(4,'PRODUKSI','E004','08-Mar-2005');
 
--- melihat data
-select * from tb_departement;
-
 
 ----------------------------------------------------------------------------------------------------
 -- # tb_dept_location # ============================================================================
 ----------------------------------------------------------------------------------------------------
+-- melihat data
+select * from tb_dept_location;
+
 -- menambah data
 insert into tb_dept_location (DNumber, DLocation)
 	values ('1','Dramaga'), ('2','Dramaga'), ('3','Dramaga'), ('4','Baranang Siang');
 
--- melihat data
-select * from tb_dept_location;
 
 ----------------------------------------------------------------------------------------------------
 -- # tb_project # ==================================================================================
 ----------------------------------------------------------------------------------------------------
+select * from tb_project;
+
 insert into tb_project (PNumber, PName, PLocation, Dnumber)
 	values
 		(1,'AAA','Bogor',1), (2,'BBB','Jakarta',2), (3,'CCC','Tangerang',2), (4,'DDD','Bekasi',2),
 		(5,'EEE','Depok',3), (6,'FFF','Bogor',3), (7,'GGG','Tangerang',4), (8,'HHH','Jakarta',4);
-		
-select * from tb_project;
+
 
 ----------------------------------------------------------------------------------------------------
 -- # tb_work_on # ==================================================================================
 ----------------------------------------------------------------------------------------------------
+select * from tb_work_on;
+
 insert into tb_work_on (SSN, PNumber, Hours)
 	values
 		('E001',1,90), ('E001',2,98),
@@ -85,12 +79,30 @@ insert into tb_work_on (SSN, PNumber, Hours)
 		('E007',7,40), ('E007',8,88),
 		('E008',1,78), ('E008',8,87), 
 		('E009',1,88), ('E009',2,65), 
-		('E010',2,34), ('E010',3,78), 
+		('E010',2,34), ('E010',3,78),
 		('E011',1,68), ('E011',3,88);
 
-select * from tb_work_on;
 
 ----------------------------------------------------------------------------------------------------
 -- # tb_dependent # ================================================================================
 ----------------------------------------------------------------------------------------------------
 select * from tb_dependent;
+
+insert into
+	tb_dependent (SSN, DependentName, Sex, BDate, Relationship)
+values
+	('E001','Rita','F','18-Sep-2005','DAUGHTER'),
+	('E001','Doni','M','09-Jan-2007','SON'),
+	('E002','Wawan','M','23-Oct-1984','HUSBAND'),
+	('E002','Roy','M','15-Dec-2006','SON'),
+	('E003','Roni','M','23-AUG-1985','HUSBAND'),
+	('E003','Dewi','F','01-Jan-2006','DAUGHTER'),
+	('E004','Susi','F','05-Sep-1987','WIFE'),
+	('E004','Rani','M','10-Feb-2007','DAUGHTER'),
+	('E011','Dina','F','13-Jan-1987','WIFE'),
+	('E011','Riko','M','21-Mar-2006','SON'),
+	('E013','Rini','F','15-Aug-1987','WIFE'),
+	('E013','Tina','F','17-Dec-2005','DAUGHTER'),
+	('E014','Ayu','F','08-Dec-1988','WIFE'),
+	('E014','Didiet','M','05-Dec-2006','SON'),
+	('E020','Nita','F','25-Jan-1987','WIFE');
