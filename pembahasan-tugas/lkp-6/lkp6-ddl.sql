@@ -16,6 +16,10 @@ create table tb_employee(
 	DNumber varchar(50)
 );
 
+alter table tb_employee add constraint ssn_pk primary key (ssn);
+alter table tb_employee add constraint superssn_fk foreign key (superSSN) references tb_employee(ssn);
+alter table tb_employee add constraint dnumber_fk foreign key (dnumber) references tb_departement(dnumber);
+
 -- membuat tb_departement
 -- drop table tb_departement;
 create table tb_departement(
@@ -24,6 +28,8 @@ create table tb_departement(
 	Mgr_SSN varchar(50),
 	Mgr_StartDate date
 );
+
+alter table tb_departement add constraint dnumber_pk primary key (dnumber);
 
 -- membuat tb_dept_location;
 -- drop table tb_dept_location;
@@ -58,6 +64,10 @@ create table tb_dependent(
 	BDate date,
 	Relationship varchar(50)
 );
+
+
+
+
 
 
 

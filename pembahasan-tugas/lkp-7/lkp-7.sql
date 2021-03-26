@@ -22,6 +22,5 @@ select A.ssn, A.fname, A.lname, C.pname
 		
 		
 		
-		
-		where A.ssn = B.ssn and A.dnumber = D.dnumber and B.pnumber = C.pnumber; 
+
 		

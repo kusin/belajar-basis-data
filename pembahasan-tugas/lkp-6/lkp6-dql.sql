@@ -1,3 +1,11 @@
+select * from tb_dept_location;
+select * from tb_departement;
+
+select * from tb_employee order by fname;
+select * from tb_work_on;
+select * from tb_project;
+select * from tb_dependent;
+
 ----------------------------------------------------------------------------------------------------
 -- # Latihan Soal  # ===============================================================================
 ----------------------------------------------------------------------------------------------------
@@ -38,21 +46,19 @@ select address, count(*) from tb_employee
 select SSN, FName, Age(current_date, BDate) as Age
 	from tb_employee order by Age asc;
 
-
-select * from tb_employee;
-select * from tb_work_on;
-select * from tb_project;
-select * from tb_dependent;
-
 ----------------------------------------------------------------------------------------------------
 -- # Jawaban LKP-6 # ===============================================================================
 ----------------------------------------------------------------------------------------------------
+select * from tb_employee order by fname;
+select * from tb_dependent;
 -- Nomor a.
 select A.Fname, B.DependentName, B.relationship
 	from tb_employee as A, tb_dependent as B
 	where A.ssn = B.ssn and A.FName like 'R%';
 
+
 -- Nomor b.
+select * from tb_work_on order by pnumber asc;
 select count(ssn) as sum_employee
 	from tb_work_on where pnumber = '1';
 
