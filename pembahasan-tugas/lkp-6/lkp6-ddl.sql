@@ -17,8 +17,8 @@ create table tb_employee(
 );
 
 alter table tb_employee add constraint ssn_pk primary key (ssn);
-alter table tb_employee add constraint superssn_fk foreign key (superSSN) references tb_employee(ssn);
-alter table tb_employee add constraint dnumber_fk foreign key (dnumber) references tb_departement(dnumber);
+--alter table tb_employee add constraint superssn_fk foreign key (superSSN) references tb_employee(ssn);
+--alter table tb_employee add constraint dnumber_fk foreign key (dnumber) references tb_departement(dnumber);
 
 -- membuat tb_departement
 -- drop table tb_departement;
