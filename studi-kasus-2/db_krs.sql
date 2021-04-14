@@ -61,6 +61,16 @@ insert into tb_mata_kuliah (kode_mk, nama_mk, sks, semester, status_mata_kuliah)
 	('KMK-0020','Metode Numerik','3','3','Aktif'),
 	('KMK-0021','Pengantar Organisasi Komputer','3','3','Aktif'),
 	('KMK-0022','Perancangan dan Pemrograman Web','3','3','Aktif');
+
+-- mk smstr 4
+insert into tb_mata_kuliah (kode_mk, nama_mk, sks, semester, status_mata_kuliah)
+	values	
+	('KMK-0023','Arsitektur Komputer','3','4','Aktif'),
+	('KMK-0024','Desain dan Analisis Algoritma','4','4','Aktif'),
+	('KMK-0025','Jaringan Komputer','4','4','Aktif'),
+	('KMK-0026','Rekayasa Perangkat Lunak','3','4','Aktif'),
+	('KMK-0027','Sistem Operasi','4','4','Aktif'),
+	('KMK-0028','Statistik dan Probabilitas','4','4','Aktif');
 	
 select * from tb_mata_kuliah;
 
@@ -110,8 +120,8 @@ select * from tb_krs;
 -- Procedure dan Trigger --------------------------------------------------------------------------
 -- ================================================================================================
 -- procedure
--- drop function set_nilai_mutu;
-create or replace function set_nilai_mutu()
+-- drop function sp_hitung_nilai;
+create or replace function sp_hitung_nilai()
 	returns trigger AS
 $BODY$
 begin
@@ -133,17 +143,35 @@ end;
 $BODY$ language plpgsql;
 
 -- trigger
--- drop trigger set_nilai_mutu on tb_krs;
-create trigger set_nilai_mutu
+-- drop trigger tr_hitung_nilai_1 on tb_krs;
+create trigger tr_hitung_nilai_1
 	before insert on tb_krs for each row
-	execute procedure set_nilai_mutu();
+	execute procedure sp_hitung_nilai();
+
+-- trigger
+-- drop trigger tr_hitung_nilai_2 on tb_krs;
+create trigger tr_hitung_nilai_2
+	before update on tb_krs for each row
+	execute procedure sp_hitung_nilai();
 
 -- ================================================================================================
 -- Uji coba procedure dan Trigger -----------------------------------------------------------------
 -- ================================================================================================
 insert into tb_krs (nim, kode_mk, id_tahun_ajar, formatif,  uts, uas) 
 	values ('11140910000103', 'KMK-0001', 'IDT-0004', '70', '90', '85');
+
+-- ================================================================================================
+-- View dan Join ----------------------------------------------------------------------------------
+-- ================================================================================================
 select * from tb_krs;
+select B.nim, B.nama, C.kode_mk, C.nama_mk, D.id_tahun_ajar, D.nama_tahun_ajar, A.nilai_akhir, A.huruf_mutu
+	from tb_krs A	
+		inner join tb_mahasiswa B on A.nim = B.nim
+		inner join tb_mata_kuliah C on A.kode_mk = C.kode_mk
+		inner join tb_tahun_ajar D on A.id_tahun_ajar = D.id_tahun_ajar;
 
 
 
+select * from tb_mahasiswa;
+delete from tb_mahasiswa 
+where nim='G651190091';

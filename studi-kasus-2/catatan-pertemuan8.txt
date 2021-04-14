@@ -1,0 +1,30 @@
+Catatan Pertemuan 8.
+"Konsep menghapus data tanpa menghilangkan data".
+
+-- Perhatikan modul mahasiswa memiliki aksi tambah, ubah, hapus, liat data mhs.
+	1. cara melihat data mahasiswa
+		"SELECT * FROM tb_mahasiswa
+			WHERE status_mahasiswa='Aktif'";
+		Note:
+			"Artinya data yang ditampilkan aplikasi web krs hanya mhs aktif saja.
+			Sedangkan mhs yg sudah lulus/Alumni tidak di tampilkan.
+			Karena mhs alumni sudah tidak menggunakan aplikasi web krs lg."
+	
+	2. cara menghapus data mahasiswa
+		"UPDATE tb_mahasiswa set 
+			status_mahasiswa='Alumni' WHERE nim='1114091000101'";
+		
+		Note:
+			"Ketika menghapus data mahasiswa hanya merubah status_mahasiswa menjadi alumni.
+			Agar data mhs tersebut ttp disimpan pada database/server."
+			"Tetapi pada web aplikasi krs data mhs tersebut tidak terlihat
+				karena yang ditampilkan hanya mhs yang masih aktif kuliah saja".
+			Cara ini digunakan untuk mempertahankan konsistensi data, integritas data, ketersedian data.
+		
+		Alasannya:
+			"Agar pada saat evaluasi, berapa mhs yg sudah lulus dan belum lulus dapat terpantau dari database/server".
+			Jika menghapus data menggunakan perintah
+				"DELETE FROM tb_mahasiswa WHERE nim='11140910000101'";
+			Maka data tersebut benar2 hilang secara permanen. 
+			Dan saat melakukan evaluasi berapa mhs yg sudah lulus dan belum lulus tidak dapat dipantau.
+			Karena tidak tersedia data mhs yg sudah lulus/Alumni.
